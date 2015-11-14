@@ -2,31 +2,37 @@
 	{
         "nameKey": "homework",
         "objectId": "5sLoh4oJM2",
-        "order": 2
+        "order": 2,
+				"image": "ic-study.svg"
     },
 	{
         "nameKey": "painting",
         "objectId": "82Z6DcnG76",
-        "order": 5
+        "order": 5,
+				"image": "ic-paint.svg"
     },
 	{
         "nameKey": "babysitting",
         "objectId": "FFSu7OvzWs",
-        "order": 1
+        "order": 1,
+				"image": "ic-kids.svg"
     },
 	{
         "nameKey": "misc",
         "objectId": "alG82lPsqt",
-        "order": 6
+        "order": 6,
+				"image": "ic-other.svg"
     },
 	{
         "nameKey": "dog-walking",
         "objectId": "o4CtdB6S3R",
-        "order": 3
+        "order": 3,
+				"image": "ic-dog-walking.svg"
     },
 	{
         "nameKey": "window-cleaning",
         "objectId": "zet1Cxd0dT",
-        "order": 4
+        "order": 4,
+				"image": "ic-window-cleaning.svg"
     }
 ] }
