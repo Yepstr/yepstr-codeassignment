@@ -1,7 +1,8 @@
 import React from 'react';
 import StyleSheet from 'react-style';
-const Title = require('./Title.js');
-const TasksList = require('./TasksList.js');
+
+require('json-loader');
+const categories = require('json!../../data/Category.json');
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -22,16 +23,18 @@ const styles = StyleSheet.create({
   },
 });
 
-class NewTask extends React.Component {
+class TasksList extends React.Component {
   render() {
     return (
-      <div style={ styles.wrapper }>
-        aa
-        <Title/>
-        <TasksList/>
+      <div style={styles.titleContainer}>
+        <div style={styles.title}>
+          Bonjour
+          {categories.results[1].nameKey}
+        </div>
       </div>
     );
   }
 }
 
-export default NewTask;
+
+export default TasksList;

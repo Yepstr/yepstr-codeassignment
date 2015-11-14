@@ -1,12 +1,7 @@
 import React from 'react';
 import StyleSheet from 'react-style';
-const Title = require('./Title.js');
-const TasksList = require('./TasksList.js');
 
 const styles = StyleSheet.create({
-  wrapper: {
-    padding: '30px',
-  },
   titleContainer: {
     backgroundColor: 'rgb(248,248,248)',
     maxHeight: '20%',
@@ -22,16 +17,17 @@ const styles = StyleSheet.create({
   },
 });
 
-class NewTask extends React.Component {
+class Title extends React.Component {
   render() {
     return (
-      <div style={ styles.wrapper }>
-        aa
-        <Title/>
-        <TasksList/>
+      <div style={styles.titleContainer}>
+        <div style={styles.title}>
+          Välj kategori
+        </div>
       </div>
     );
   }
 }
 
-export default NewTask;
+
+export default Title;
