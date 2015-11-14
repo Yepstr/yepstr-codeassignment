@@ -1,7 +1,7 @@
 import React from 'react';
 import StyleSheet from 'react-style';
-require("json-loader");
-var categories = require('json!../../data/Category.json');
+require('json-loader');
+const categories = require('json!../../data/Category.json');
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -33,29 +33,25 @@ class NewTaskWholePage extends React.Component {
   }
 }
 
-class NewTaskTitle extends React.Component {
-  render() {
-    return (
-        <div style={styles.titleContainer}>
-          <div style={styles.title}>
-            Välj kategori
-          </div>
-        </div>
-    );
-  }
+function NewTaskTitle() {
+  return (
+    <div style={styles.titleContainer}>
+      <div style={styles.title}>
+        Välj kategori
+      </div>
+    </div>
+  );
 }
 
-class TasksList extends React.Component {
-  render() {
-    return (
-      <div style={styles.titleContainer}>
-        <div style={styles.title}>
-          Bonjour
-          {categories.results[1].nameKey}
-        </div>
+function TasksList() {
+  return (
+    <div style={styles.titleContainer}>
+      <div style={styles.title}>
+        Bonjour
+        {categories.results[1].nameKey}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 
