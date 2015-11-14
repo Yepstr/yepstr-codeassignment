@@ -20,18 +20,28 @@ const styles = StyleSheet.create({
   },
 });
 
-class NewTask extends React.Component {
+class NewTaskWholePage extends React.Component {
   render() {
     return (
       <div style={ styles.wrapper }>
-        <div style={styles.titleContainer}>
-          <div style={styles.title}>
-            Välj kategori
-          </div>
-        </div>
+        <NewTaskTitle/>
       </div>
     );
   }
 }
 
-export default NewTask;
+class NewTaskTitle extends React.Component {
+  render() {
+    return (
+        <div style={styles.titleContainer}>
+          <div style={styles.title}>
+            Välj kategori
+          </div>
+        </div>
+    );
+  }
+}
+
+
+
+export default NewTaskWholePage;
