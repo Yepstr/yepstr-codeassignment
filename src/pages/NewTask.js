@@ -45,9 +45,6 @@ class NewTask extends React.Component {
       <div style={ styles.wrapper }>
         <Title/>
         <CategoriesList categories={categories} onClick={selectCategory} backgroundColors={categoriesBackgroundColors}/>
-        <div>
-          ca va :)
-        </div>
       </div>
     );
   }
