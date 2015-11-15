@@ -35,6 +35,9 @@ const imagePath = '../../public/img/';
 class CategoriesList extends React.Component {
   render() {
     const categories = this.props.categories.results;
+    const clickAction = this.props.onClick;
+    const backgroundColors = this.props.backgroundColors;
+    let it = this;
     const test = function() {
       let result = [];
       let numberOfCategories = categories.length;
@@ -43,14 +46,19 @@ class CategoriesList extends React.Component {
         for(let categoryTestedId=0; categoryTestedId < numberOfCategories; categoryTestedId++){
           if(categories[categoryTestedId].order === categoryId){
             result.push(
-              <td style={styles.categoryTd}>
-                <div style={styles.imageContainer}>
-                  <img src={imagePath + categories[categoryTestedId].image} style={styles.image}/>
-                </div>
-                <div style={styles.categoryName}>
-                  {texts[categories[categoryTestedId].nameKey]}
-                </div>
-              </td>
+              <a onClick={clickAction.bind(it,backgroundColors,categoryId)} >
+                <div style={{backgroundColor: backgroundColors[categoryId]}}>
+                <td style={styles.categoryTd}>
+                  <div style={styles.imageContainer}>
+                    <img src={imagePath + categories[categoryTestedId].image} style={styles.image}/>
+                  </div>
+                  <div style={styles.categoryName}>
+                    {texts[categories[categoryTestedId].nameKey]}
+                    {backgroundColors[1]}
+                  </div>
+                </td>
+              </div>
+              </a>
             );
             if(categoryId % 3 === 0){
               result.push(<tr></tr>);
@@ -64,7 +72,7 @@ class CategoriesList extends React.Component {
     };
     return (
       <table style={styles.categoryTable}>
-          {test()}
+        {test()}
       </table>
     );
   }
