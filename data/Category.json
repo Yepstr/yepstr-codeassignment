@@ -3,25 +3,29 @@
         "nameKey": "homework",
         "objectId": "5sLoh4oJM2",
         "order": 2,
-				"image": "ic-study.svg"
+				"image": "ic-study.svg",
+				"nameToDisplay": "Läxhjälp"
     },
 	{
         "nameKey": "painting",
         "objectId": "82Z6DcnG76",
         "order": 5,
-				"image": "ic-paint.svg"
+				"image": "ic-paint.svg",
+				"nameToDisplay": "Målning"
     },
 	{
         "nameKey": "babysitting",
         "objectId": "FFSu7OvzWs",
         "order": 1,
-				"image": "ic-kids.svg"
+				"image": "ic-kids.svg",
+				"nameToDisplay": "Barnvakt"
     },
 	{
         "nameKey": "misc",
         "objectId": "alG82lPsqt",
         "order": 6,
-				"image": "ic-other.svg"
+				"image": "ic-other.svg",
+				"nameToDisplay": "Övrigt"
     },
 	{
         "nameKey": "dog-walking",
@@ -33,6 +37,7 @@
         "nameKey": "window-cleaning",
         "objectId": "zet1Cxd0dT",
         "order": 4,
-				"image": "ic-window-cleaning.svg"
+				"image": "ic-window-cleaning.svg",
+				"nameToDisplay": "Fönsterputs"
     }
 ] }
