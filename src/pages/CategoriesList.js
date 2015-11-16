@@ -36,7 +36,8 @@ class CategoriesList extends React.Component {
   render() {
     const categories = this.props.categories.results;
     const clickAction = this.props.onClick;
-    const backgroundColors = this.props.backgroundColors;
+    const selectedCategoryId = 1;
+    let backColor = 'red';
     let it = this;
     const test = function() {
       let result = [];
@@ -45,21 +46,33 @@ class CategoriesList extends React.Component {
       for(let categoryToDisplayOrder=1; categoryToDisplayOrder <= numberOfCategories; categoryToDisplayOrder++){
         for(let categoryId=0; categoryId < numberOfCategories; categoryId++){
           if(categories[categoryId].order === categoryToDisplayOrder){
+            let isCategorySelected = (selectedCategoryId === categoryId);
+            if(isCategorySelected){
+              backColor= 'orange';
+            }
             result.push(
-              <a onClick={clickAction.bind(it,backgroundColors,categoryToDisplayOrder)} >
-                <div style={{backgroundColor: backgroundColors[categoryToDisplayOrder]}}>
+              <a onClick={clickAction.bind(it,categoryToDisplayOrder)} >
+                <div style={{backgroundColor: 'red'}}>
                   <td style={styles.categoryTd}>
                     <div style={styles.imageContainer}>
                       <img src={imagePath + categories[categoryId].image} style={styles.image}/>
                     </div>
                     <div style={styles.categoryName}>
                       {texts[categories[categoryId].nameKey]}
-                      {backgroundColors[1]}
+                    </div>
+                    <div style={{backgroundColor: backColor}}>
+                      categorie selectionnee id,
+                      {selectedCategoryId}
+                      categoryId
+                      {categoryId}
                     </div>
                   </td>
                 </div>
               </a>
             );
+            if(isCategorySelected){
+              backColor= 'white';
+            }
             if(categoryToDisplayOrder % 3 === 0){
               result.push(<tr></tr>);
             }
