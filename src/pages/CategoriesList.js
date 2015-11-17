@@ -33,59 +33,76 @@ const styles = StyleSheet.create({
 const imagePath = '../../public/img/';
 
 class CategoriesList extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {selectedCategoryId: -1};
+   }
+   selectCategory(categoryId){
+     this.setState({selectedCategoryId: categoryId});
+   }
+   displayCategoryRowByOrders(){
+     let numberOfCellsInThisRow = 3;
+     let displayedCategoryRowByOrders = [];
+
+     for(let categoryOrder=1; categoryOrder <= numberOfCellsInThisRow; categoryOrder++){
+       displayedCategoryRowByOrders.push(this.displayCategoryCellFromOrder(categoryOrder));
+     }
+     return(displayedCategoryRowByOrders);
+   }
+   displayCategoryCellFromOrder(categoryOrder){
+     const categories = this.props.categories.results;
+     const numberOfCategories = categories.length;
+
+     for(let categoryId=0; categoryId < numberOfCategories; categoryId++){
+       if(categories[categoryId].order === categoryOrder){
+         return(this.displayCategoryCellFromId(categoryId));
+       }
+     }
+   }
+   displayCategoryCellFromId(categoryId){
+     const categories = this.props.categories.results;
+     const backColor = this.decideBackgroundColor(categoryId);
+
+     return(
+       <div onClick={this.selectCategory.bind(this, categoryId)} style={{backgroundColor: 'pink'}}>
+           <td style={{ height: '33.3vw',
+             width: '33.3vw',
+             borderWidth: '0px 1.5px 1.5px 1.5px',
+             borderStyle: 'solid',
+             borderColor: 'rgb(222,222,222)',
+             margin: 'auto',
+             textAlign: 'center',
+             backgroundColor: backColor
+           }}>
+             <div style={{backgroundColor: backColor}}>
+             <div style={styles.imageContainer}>
+               <img src={imagePath + categories[categoryId].image} style={styles.image}/>
+             </div>
+             <div style={styles.categoryName}>
+               {texts[categories[categoryId].nameKey]}
+             </div>
+             </div>
+           </td>
+       </div>
+     );
+   }
+   decideBackgroundColor(categoryId){
+     let isCategorySelected = (this.state.selectedCategoryId === categoryId);
+     if(isCategorySelected){
+       return 'orange';
+     } else{
+       return 'white';
+     }
+   }
   render() {
-    const categories = this.props.categories.results;
-    const clickAction = this.props.onClick;
-    const selectedCategoryId = 1;
-    let backColor = 'red';
     let it = this;
-    const test = function() {
-      let result = [];
-      let numberOfCategories = categories.length;
-      let mod = 0;
-      for(let categoryToDisplayOrder=1; categoryToDisplayOrder <= numberOfCategories; categoryToDisplayOrder++){
-        for(let categoryId=0; categoryId < numberOfCategories; categoryId++){
-          if(categories[categoryId].order === categoryToDisplayOrder){
-            let isCategorySelected = (selectedCategoryId === categoryId);
-            if(isCategorySelected){
-              backColor= 'orange';
-            }
-            result.push(
-              <a onClick={clickAction.bind(it,categoryToDisplayOrder)} >
-                <div style={{backgroundColor: 'red'}}>
-                  <td style={styles.categoryTd}>
-                    <div style={styles.imageContainer}>
-                      <img src={imagePath + categories[categoryId].image} style={styles.image}/>
-                    </div>
-                    <div style={styles.categoryName}>
-                      {texts[categories[categoryId].nameKey]}
-                    </div>
-                    <div style={{backgroundColor: backColor}}>
-                      categorie selectionnee id,
-                      {selectedCategoryId}
-                      categoryId
-                      {categoryId}
-                    </div>
-                  </td>
-                </div>
-              </a>
-            );
-            if(isCategorySelected){
-              backColor= 'white';
-            }
-            if(categoryToDisplayOrder % 3 === 0){
-              result.push(<tr></tr>);
-            }
-          }
-        }
-      }
-      return(
-        {result}
-      );
-    };
     return (
       <table style={styles.categoryTable}>
-        {test()}
+        <tbody style={{fontWeight: 'bold'}}>
+          <tr style={{fontWeight: 'bold'}}>
+          {it.displayCategoryRowByOrders()}
+          </tr>
+        </tbody>
       </table>
     );
   }

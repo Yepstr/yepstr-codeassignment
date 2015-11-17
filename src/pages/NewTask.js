@@ -17,20 +17,13 @@ const styles = StyleSheet.create({
 
 
 class NewTask extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {selectedCategoryId: 1};
-   }
-   selectCategory(categoryId){
-     this.setState({selectedCategoryId: categoryId});
-     window.alert('Category selected : (just to show you it works ;)) ' + this.state.selectedCategoryId);
-   }
+
   render() {
 
     return (
       <div style={ styles.wrapper }>
         <Title/>
-        <CategoriesList categories={categories} onClick={this.selectCategory.bind(this)} />
+        <CategoriesList categories={categories}  />
       </div>
     );
   }
