@@ -23,9 +23,9 @@ class NewTask extends React.Component {
 
     return (
       <div style={ styles.wrapper }>
-        <Title textToDisplay={texts.titles.chooseCategory}/>
-        <CategoriesList categories={categories}  />
-        <Title textToDisplay={texts.titles.fillInformations}/>
+      <Title textToDisplay={texts.titles.chooseCategory}/>
+      <CategoriesList categories={categories}/>
+      <Title textToDisplay={texts.titles.fillInformations}/>
       </div>
     );
   }
