@@ -1,7 +1,6 @@
 import React from 'react';
 import StyleSheet from 'react-style';
-require('json-loader');
-const texts = require('json!../../data/i18n/categories-se.json');
+
 
 const styles = StyleSheet.create({
   titleContainer: {
@@ -21,10 +20,11 @@ const styles = StyleSheet.create({
 
 class Title extends React.Component {
   render() {
+    let textToDisplay = this.props.textToDisplay;
     return (
       <div style={styles.titleContainer}>
         <div style={styles.title}>
-          {texts.chooseCategory}
+          {textToDisplay}
         </div>
       </div>
     );

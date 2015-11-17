@@ -4,6 +4,7 @@ const Title = require('./Title.js');
 const CategoriesList = require('./categoriesList.js');
 require('json-loader');
 const categories = require('json!../../data/Category.json');
+const texts = require('json!../../data/i18n/categories-se.json');
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -22,8 +23,9 @@ class NewTask extends React.Component {
 
     return (
       <div style={ styles.wrapper }>
-        <Title/>
+        <Title textToDisplay={texts.titles.chooseCategory}/>
         <CategoriesList categories={categories}  />
+        <Title textToDisplay={texts.titles.fillInformations}/>
       </div>
     );
   }

@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     margin: 'auto',
     textAlign: 'center',
   },
+  categoryTr: {
+    fontSize: '3vw',
+  },
   imageContainer: {
     marginBottom: '3vw',
   },
@@ -36,31 +39,53 @@ class CategoriesList extends React.Component {
   constructor(props) {
       super(props);
       this.state = {selectedCategoryId: -1};
+      this.numberOfCellsInARow = 3;
+      this.categories = this.props.categories.results;
    }
+
    selectCategory(categoryId){
      this.setState({selectedCategoryId: categoryId});
    }
-   displayCategoryRowByOrders(){
-     let numberOfCellsInThisRow = 3;
+
+   displayAllCategoryRowsByOrders(){
+     const numberOfCategoryCells = this.categories.length;
+     const numberOfRows = numberOfCategoryCells / this.numberOfCellsInARow;
+     let displayedCategoryRows = [];
+
+     for(let rowNumber = 1; rowNumber <= numberOfRows; rowNumber++){
+      displayedCategoryRows.push(this.displayCategoryRowByOrders(rowNumber));
+     }
+     return(displayedCategoryRows);
+   }
+
+   displayCategoryRowByOrders(rowNumber){
+     const firstCategoryOrder = 1;
+     const firstRowNumber = 1;
+     const firstCategoryOrderInRow = (rowNumber-firstRowNumber) * this.numberOfCellsInARow + firstCategoryOrder;
+     const lastCategoryOrderInRow = (firstCategoryOrderInRow - firstCategoryOrder) + this.numberOfCellsInARow;
      let displayedCategoryRowByOrders = [];
 
-     for(let categoryOrder=1; categoryOrder <= numberOfCellsInThisRow; categoryOrder++){
+     for(let categoryOrder = firstCategoryOrderInRow; categoryOrder <= lastCategoryOrderInRow; categoryOrder++){
        displayedCategoryRowByOrders.push(this.displayCategoryCellFromOrder(categoryOrder));
      }
-     return(displayedCategoryRowByOrders);
+     return(
+       <tr style={styles.categoryTr}>
+       {displayedCategoryRowByOrders}
+      </tr>
+     );
    }
+
    displayCategoryCellFromOrder(categoryOrder){
-     const categories = this.props.categories.results;
-     const numberOfCategories = categories.length;
+     const numberOfCategories = this.categories.length;
 
      for(let categoryId=0; categoryId < numberOfCategories; categoryId++){
-       if(categories[categoryId].order === categoryOrder){
+       if(this.categories[categoryId].order === categoryOrder){
          return(this.displayCategoryCellFromId(categoryId));
        }
      }
    }
+
    displayCategoryCellFromId(categoryId){
-     const categories = this.props.categories.results;
      const backColor = this.decideBackgroundColor(categoryId);
 
      return(
@@ -76,10 +101,10 @@ class CategoriesList extends React.Component {
            }}>
              <div style={{backgroundColor: backColor}}>
              <div style={styles.imageContainer}>
-               <img src={imagePath + categories[categoryId].image} style={styles.image}/>
+               <img src={imagePath + this.categories[categoryId].image} style={styles.image}/>
              </div>
              <div style={styles.categoryName}>
-               {texts[categories[categoryId].nameKey]}
+               {texts.categoriesNames[this.categories[categoryId].nameKey]}
              </div>
              </div>
            </td>
@@ -100,7 +125,7 @@ class CategoriesList extends React.Component {
       <table style={styles.categoryTable}>
         <tbody style={{fontWeight: 'bold'}}>
           <tr style={{fontWeight: 'bold'}}>
-          {it.displayCategoryRowByOrders()}
+            {it.displayAllCategoryRowsByOrders()}
           </tr>
         </tbody>
       </table>
