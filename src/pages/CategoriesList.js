@@ -2,7 +2,7 @@ import React from 'react';
 import StyleSheet from 'react-style';
 require('json-loader');
 const texts = require('json!../../data/i18n/categories-se.json');
-
+const Title = require('./Title.js');
 
 const styles = StyleSheet.create({
   categoryTable: {
@@ -31,6 +31,21 @@ const styles = StyleSheet.create({
     fontSize: '3vw',
     fontWeight: 'bold',
   },
+  label: {
+    marginTop: '3vw',
+    marginBottom: '1vw',
+  },
+  form: {
+    color: 'grey',
+    marginLeft: '10vw',
+    fontSize: '25',
+  },
+  input: {
+    border: 'none',
+    borderBottom: 'solid 3px black',
+    width: '90%',
+    fontSize: '27',
+  }
 });
 
 const imagePath = '../../public/img/';
@@ -89,8 +104,7 @@ class CategoriesList extends React.Component {
     const backColor = this.decideBackgroundColor(categoryId);
 
     return(
-      <div onClick={this.selectCategory.bind(this, categoryId)} style={{backgroundColor: 'pink'}}>
-        <td style={{ height: '33.3vw',
+        <td onClick={this.selectCategory.bind(this, categoryId)} style={{ height: '33.3vw',
           width: '33.3vw',
           borderWidth: '0px 1.5px 1.5px 1.5px',
           borderStyle: 'solid',
@@ -106,7 +120,6 @@ class CategoriesList extends React.Component {
           {texts.categoriesNames[this.categories[categoryId].nameKey]}
         </div>
       </td>
-    </div>
   );
 }
 decideBackgroundColor(categoryId) {
@@ -117,14 +130,41 @@ decideBackgroundColor(categoryId) {
     return 'white';
   }
 }
+displayDateForm() {
+  if(this.state.selectedCategoryId !== -1) {
+    const texte = 'essai';
+    return(
+      <div style={styles.categoryTr}>
+        <Title textToDisplay={texts.titles.fillInformations}/>
+        <div style={styles.form}>
+          <div style={styles.label}>
+            {texts.date}
+          </div>
+          <input type='date' style={styles.input}/>
+          <div style={styles.label}>
+            {texts.time}
+          </div>
+          <input type='time' style={styles.input}/>
+        </div>
+      </div>
+    );
+  } else {
+    return('');
+  }
+}
 render() {
   const it = this;
   return (
-    <table style={styles.categoryTable}>
-      <tbody style={{fontWeight: 'bold'}}>
-        {it.displayAllCategoryRowsByOrders()}
-      </tbody>
-    </table>
+    <div style={styles.categoryTr}>
+      <table style={styles.categoryTable}>
+        <tbody style={{fontWeight: 'bold'}}>
+          {it.displayAllCategoryRowsByOrders()}
+        </tbody>
+      </table>
+      <div style={styles.categoryTr}>
+        {it.displayDateForm()}
+      </div>
+    </div>
   );
 }
 }

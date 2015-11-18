@@ -1,4 +1,6 @@
 {
+  "time": "Tid",
+  "date": "Datum",
   "titles": {
     "chooseCategory": "Välj kategori",
     "fillInformations": "Uppdragsinformation"
