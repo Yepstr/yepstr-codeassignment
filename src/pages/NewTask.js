@@ -50,7 +50,6 @@ class CategoriesList extends React.Component {
   }
 
   render() {
-    const it = this;
     return (
       <div style={styles.wrapper}>
 
@@ -58,11 +57,11 @@ class CategoriesList extends React.Component {
 
         <table style={styles.categoryTable}>
           <tbody>
-            {it.displayAllCategoryRowsByOrders()}
+            {this.displayAllCategoryRowsByOrders()}
           </tbody>
         </table>
 
-        {it.displayDateForm()}
+        {this.displayDateForm()}
 
       </div>
     );
