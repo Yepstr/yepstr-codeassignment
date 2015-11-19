@@ -37,7 +37,7 @@ class InputWithLabel extends React.Component {
   }
 }
 InputWithLabel.propTypes = { textInLabel: React.PropTypes.string };
-InputWithLabel.propTypes = { inputType: React.PropTypes.string.required };
-InputWithLabel.defaultProps = { inputType: 'text' };
+InputWithLabel.propTypes = { inputType: React.PropTypes.string };
+
 
 export default InputWithLabel;

@@ -90,7 +90,7 @@ class CategoriesList extends React.Component {
       displayedCategoryRowByOrders.push(this.displayCategoryCellFromOrder(categoryOrder));
     }
     return (
-      <tr style={styles.categoryTr}>
+      <tr style={styles.categoryTr} key={rowNumber}>
         {displayedCategoryRowByOrders}
       </tr>
     );
@@ -110,7 +110,7 @@ class CategoriesList extends React.Component {
     const backColor = this.decideBackgroundColor(categoryId);
 
     return (
-      <td onClick={this.selectCategory.bind(this, categoryId)} style={{ height: '33.3vw',
+      <td onClick={this.selectCategory.bind(this, categoryId)} key={categoryId} style={{ height: '33.3vw',
         width: '33.3vw',
         borderWidth: '0px 1.5px 1.5px 1.5px',
         borderStyle: 'solid',
