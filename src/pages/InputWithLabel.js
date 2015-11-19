@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     borderBottom: 'solid 3px black',
     width: '90%',
     fontSize: '27',
-  }
+  },
 });
 
 class InputWithLabel extends React.Component {
   render() {
-    let textInLabel = this.props.textInLabel;
-    let inputType = this.props.inputType;
+    const textInLabel = this.props.textInLabel;
+    const inputType = this.props.inputType;
     return (
       <div style={styles.form}>
 
@@ -32,10 +32,12 @@ class InputWithLabel extends React.Component {
         </div>
 
         <input type={inputType} style={styles.input}/>
-        
       </div>
     );
   }
 }
+InputWithLabel.propTypes = { textInLabel: React.PropTypes.string };
+InputWithLabel.propTypes = { inputType: React.PropTypes.string.required };
+InputWithLabel.defaultProps = { inputType: 'text' };
 
 export default InputWithLabel;

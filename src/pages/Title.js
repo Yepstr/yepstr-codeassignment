@@ -19,8 +19,9 @@ const styles = StyleSheet.create({
 });
 
 class Title extends React.Component {
+
   render() {
-    let textToDisplay = this.props.textToDisplay;
+    const textToDisplay = this.props.textToDisplay;
     return (
       <div style={styles.titleContainer}>
         <div style={styles.title}>
@@ -30,6 +31,7 @@ class Title extends React.Component {
     );
   }
 }
+Title.propTypes = { textToDisplay: React.PropTypes.string };
 
 
 export default Title;

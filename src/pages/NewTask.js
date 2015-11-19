@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   categoryName: {
     fontSize: '3vw',
     fontWeight: 'bold',
-  }
+  },
 });
 
 const imagePath = '../../public/img/';
@@ -45,10 +45,27 @@ class CategoriesList extends React.Component {
     super(props);
     this.state = {selectedCategoryId: -1};
     this.numberOfCellsInARow = 3;
+    this.categorySelectedBackgroundColor = 'orange';
+    this.defaultCategoryBackgroundColor = 'white';
   }
 
-  selectCategory(categoryId) {
-    this.setState({selectedCategoryId: categoryId});
+  render() {
+    const it = this;
+    return (
+      <div style={styles.wrapper}>
+
+        <Title textToDisplay={texts.titles.chooseCategory} />
+
+        <table style={styles.categoryTable}>
+          <tbody>
+            {it.displayAllCategoryRowsByOrders()}
+          </tbody>
+        </table>
+
+        {it.displayDateForm()}
+
+      </div>
+    );
   }
 
   displayAllCategoryRowsByOrders() {
@@ -59,20 +76,20 @@ class CategoriesList extends React.Component {
     for (let rowNumber = 1; rowNumber <= numberOfRows; rowNumber++) {
       displayedCategoryRows.push(this.displayCategoryRowByOrders(rowNumber));
     }
-    return(displayedCategoryRows);
+    return (displayedCategoryRows);
   }
 
   displayCategoryRowByOrders(rowNumber) {
     const firstCategoryOrder = 1;
     const firstRowNumber = 1;
-    const firstCategoryOrderInRow = (rowNumber-firstRowNumber) * this.numberOfCellsInARow + firstCategoryOrder;
+    const firstCategoryOrderInRow = (rowNumber - firstRowNumber) * this.numberOfCellsInARow + firstCategoryOrder;
     const lastCategoryOrderInRow = (firstCategoryOrderInRow - firstCategoryOrder) + this.numberOfCellsInARow;
     const displayedCategoryRowByOrders = [];
 
     for (let categoryOrder = firstCategoryOrderInRow; categoryOrder <= lastCategoryOrderInRow; categoryOrder++) {
       displayedCategoryRowByOrders.push(this.displayCategoryCellFromOrder(categoryOrder));
     }
-    return(
+    return (
       <tr style={styles.categoryTr}>
         {displayedCategoryRowByOrders}
       </tr>
@@ -82,9 +99,9 @@ class CategoriesList extends React.Component {
   displayCategoryCellFromOrder(categoryOrder) {
     const numberOfCategories = categories.length;
 
-    for (let categoryId=0; categoryId < numberOfCategories; categoryId++) {
+    for (let categoryId = 0; categoryId < numberOfCategories; categoryId++) {
       if (categories[categoryId].order === categoryOrder) {
-        return(this.displayCategoryCellFromId(categoryId));
+        return (this.displayCategoryCellFromId(categoryId));
       }
     }
   }
@@ -92,7 +109,7 @@ class CategoriesList extends React.Component {
   displayCategoryCellFromId(categoryId) {
     const backColor = this.decideBackgroundColor(categoryId);
 
-    return(
+    return (
       <td onClick={this.selectCategory.bind(this, categoryId)} style={{ height: '33.3vw',
         width: '33.3vw',
         borderWidth: '0px 1.5px 1.5px 1.5px',
@@ -100,7 +117,7 @@ class CategoriesList extends React.Component {
         borderColor: 'rgb(222,222,222)',
         margin: 'auto',
         textAlign: 'center',
-        backgroundColor: backColor
+        backgroundColor: backColor,
       }}>
 
         <div style={styles.imageContainer}>
@@ -113,55 +130,40 @@ class CategoriesList extends React.Component {
 
       </td>
   );
+  }
+
+selectCategory(categoryId) {
+  this.setState({selectedCategoryId: categoryId});
 }
 
 decideBackgroundColor(categoryId) {
   const isCategorySelected = (this.state.selectedCategoryId === categoryId);
 
   if (isCategorySelected) {
-    return 'orange';
-  } else{
-    return 'white';
+    return this.categorySelectedBackgroundColor;
   }
+  return this.defaultCategoryBackgroundColor;
 }
 
 displayDateForm() {
   const isAnyCategorySelected = this.state.selectedCategoryId !== -1;
 
-  if(isAnyCategorySelected) {
-    return(
+  if (isAnyCategorySelected) {
+    return (
       <div>
 
         <Title textToDisplay={texts.titles.fillInformations}/>
 
-        <InputWithLabel type='date' textInLabel={texts.date}/>
+        <InputWithLabel type="date" textInLabel={texts.date}/>
 
-        <InputWithLabel type='time' textInLabel={texts.time}/>
+        <InputWithLabel type="time" textInLabel={texts.time}/>
 
       </div>
     );
-  } else {
-    return('');
   }
+  return ('');
 }
-render() {
-  const it = this;
-  return (
-    <div style={styles.wrapper}>
 
-      <Title textToDisplay={texts.titles.chooseCategory} />
-
-      <table style={styles.categoryTable}>
-        <tbody>
-          {it.displayAllCategoryRowsByOrders()}
-        </tbody>
-      </table>
-
-      {it.displayDateForm()}
-
-    </div>
-  );
-}
 }
 
 
