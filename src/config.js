@@ -2,13 +2,11 @@ var config = {
 	colors : {
 		selected : {
 			backgroundColor: "orange",
-			colorTitle : "white",
-			backgroundColorWrapper : "white"
+			colorTitle : "white"
 		}, 
 		notSelected : {
 			backgroundColor: "white",
-			colorTitle : "black",
-			backgroundColorWrapper : "black"
+			colorTitle : "black"
 		}
 	},
 	grid : {

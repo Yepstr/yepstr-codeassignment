@@ -27,11 +27,8 @@ class Category extends React.Component {
         position: "relative",
         width: "100%",
         paddingBottom: "100%",
-        backgroundColor: `${colors.backgroundColorWrapper}`,
-        WebkitMask: `url(${pathImg+url}) no-repeat 50% 50% ` ,
-        mask: `url(${pathImg+url}) no-repeat 50% 50% ` ,
-
-        backgroundSize: "contain",
+        backgroundImage: `url(${pathImg+url})`,
+        backgroundSize: "content",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat"
       },
