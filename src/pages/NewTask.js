@@ -5,15 +5,27 @@ const AppBar = require('material-ui/lib/app-bar');
 const Grid = require('./Grid.js');
 const TimeForm = require('./TimeForm.js');
 
+
+const injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
+
 /** styles **/ 
 const styles = StyleSheet.create({
+
   wrapper: {
     width: '40%',
     minWidth: '600px',
     margin: 'auto'
   }, 
+  
   navbar: {
     textAlign: 'center',
+  },
+  '@media screen and (max-width: 1000px)': {
+    wrapper: {
+      width: '100%',
+      minWidth: 'none'
+    }
   }
 });
 
