@@ -1,0 +1,16 @@
+{
+  "time": "Tid",
+  "date": "Datum",
+  "titles": {
+    "chooseCategory": "Välj kategori",
+    "fillInformations": "Uppdragsinformation"
+  },
+  "categoriesNames": {
+    "homework": "Läxhjälp",
+    "painting": "Målning",
+    "babysitting": "Barnvakt",
+    "misc": "Övrigt",
+    "dog-walking": "Hundpassning",
+    "window-cleaning": "Fönsterputs"
+  }
+}
