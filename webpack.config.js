@@ -32,6 +32,7 @@ var client = {
   ],
   module: {
     loaders: [
+     { test: /\.json$/, loader: "json-loader" },
       { test: /\.js?$/, loaders: [
         'babel?stage=0&optional[]=runtime',
       ], exclude: /node_modules/ }
