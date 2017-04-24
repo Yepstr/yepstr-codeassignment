@@ -75,6 +75,16 @@ function makeConfig(options) {
     exclude: /node_modules/,
     loader: 'babel-loader',
   });
+
+  rules.push({
+    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+     loader: "file-loader?mimetype=image/svg+xml"
+  });
+
+  rules.push({
+    test: /\.json$/,
+    loader: 'json-loader'
+  });
   /** /Rules **/
 
   var module = {
