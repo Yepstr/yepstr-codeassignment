@@ -1,6 +1,6 @@
-import NewTask from '../pages/NewTask';
+// import App from '../pages/App';
 
-export default {
-  path: '/',
-  components: NewTask,
-};
+// export default {
+//   path: '/',
+//   components: App,
+// };
