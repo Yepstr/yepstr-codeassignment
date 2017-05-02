@@ -1,25 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
+import{ BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-
-/*class TaskList extends React.component{
-  render() {
-    return(
-      <div>
-        <ul>
-          {this.props.tasks.map(task =>
-            <li key={task.id}>
-              <a href='#'>
-                {task.title}
-              </a>
-            </li>
-          )}
-        </ul>
-      </div>
-    )
-  }
-}*/
-
+import TaskContent from '../pages/TaskContent';
 
 class GetData extends React.Component{
   constructor(){
@@ -44,17 +27,35 @@ class GetData extends React.Component{
 
   render(){
     return(
-      <div>
+        <Router>
+            <div>
+                <ul>
+                  {this.state.tasks.map(task =>
+                    <li key={task._id}>
+                      <Link to={`/my-task/${task._id}`}>
+                        {task.title}
+                      </Link>
+                      
+                    </li>
+                  )}
+                </ul>
+                
+                  <Route path={`/my-task/:id`} component={TaskContent}/>
+               
+            </div>
+        </Router>
+
+      /*<div>
          <ul>
           {this.state.tasks.map(task =>
             <li key={task._id}>
-              <a href='#'>
+              <a href={`http://localhost:3003/api/tasks/${task._id}`}>
                 {task.title}
               </a>
             </li>
           )}
         </ul>
-      </div>
+      </div>*/
     )
   }
 }
