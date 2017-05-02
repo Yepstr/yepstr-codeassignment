@@ -31,18 +31,12 @@ export default class Html extends React.Component {
             rel="stylesheet"
             type="text/css"
           />
-          <link
-            href="/public/build/NewTask.css"
-            rel="stylesheet"
-            type="text/css"
-          />
           
           <title>{ title }</title>
           <BaseCss />
         </head>
         <body>
           <div id="app" />
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"/>
           <script src="/public/build/app-manifest.js" />
           <script src="/public/build/vendor.js" />
           <script src="/public/build/client.js" />

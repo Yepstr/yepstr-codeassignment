@@ -20,7 +20,7 @@ class TaskDetail extends React.Component {
           <li> Date: {this.props.task.date} </li>
           <li> Time: {this.props.task.time} </li>
         </ul>
-         <button className="btn-primary" onClick={() => this.props.onClick()}>Delete</button>
+         <button className="btn" onClick={() => this.props.onClick()}>Delete</button>
       </div>
     )
   }
@@ -82,8 +82,7 @@ class TaskContent extends React.Component {
 
   render(){
     return (
-      <div className="wrapper">
-        <h1> TaskContent </h1>
+      <div className="col col-span-8">
          {/*<p>{this.props.match.params.id}</p>*/}
          <TaskDetail 
             task={this.state.task}

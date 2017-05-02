@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 //import { Router, IndexRoute } from 'react-router';
 import{ BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import style from './style.scss';
 import '../setup';
 //import routes from './routes/rootRoute';
 import history from './routes/history';
@@ -15,10 +16,12 @@ if (typeof window !== 'undefined') {
     <div>
         <Router history={ history }>
             <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/my-task">My Task</Link></li>
-                </ul>
+                <div className="wrapper">
+                    <ul className="nav-bar">
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/my-task">My Task</Link></li>
+                    </ul>
+                </div>
                 <Route exact path="/" component={Home}/>
                 <Route path="/my-task" component={MyTasks}/>
             </div>

@@ -7,25 +7,17 @@ import {
 import Axios from 'axios';
 
 import {browserHistory} from 'react-router';
-/*const NewTask = () => {
-  return (
-    <div style={ styles.wrapper }>
-      Create a new Task
-    </div>
-  );
-};*/
-
-// tab element, in total 6, contains image and title
-// tab {image, title}
 
 
 function Tab(props){
   return(
     <button 
-      className={"tab " + (props.active === true ? "tab_selected" : "")} 
-      onClick={() => props.onClick()}>
-      <img src={props.item.image}></img>
-      <p>{props.item.title}</p>
+      className={"tab col col-span-3 " + (props.active === true ? "tab_selected" : "")} 
+      onClick={() => props.onClick()} >
+      <div className="img-wrapper">
+          <img src={props.item.image} />
+      </div>
+      <h3 className="btn-title">{props.item.title}</h3>
     </button>
   )
 }
@@ -42,12 +34,12 @@ class TabsSwitcher extends React.Component {
   render(){
     return(
       <div>
-        <div className="board-row">
+        <div className="board-row row">
           {this.renderTab(0)}
           {this.renderTab(1)}
           {this.renderTab(2)}
         </div>
-        <div className="board-row">
+        <div className="board-row row">
           {this.renderTab(3)}
           {this.renderTab(4)}
           {this.renderTab(5)}
@@ -157,14 +149,14 @@ class Form extends React.Component {
         <fieldset className='form-group'>
           <FormLabel htmlFor='formName' title='Full Name:' />
           <input id='formName' className='form-input' name='name' type='text'
-                 ref='formName' placeholder='your name here'
+                 ref='formName' placeholder='Please write your name here'
                  required onChange={this.handleChange}
                  value={this.state.name}  />
         </fieldset>
         <fieldset className='form-group'>
           <FormLabel htmlFor='formEmail' title='Email:' />
           <input id='formName' className='form-input' name='email' type='email'
-                 placeholder='yourname@example.com'
+                 placeholder='youremail@example.com'
                  required onChange={this.handleChange}
                  value={this.state.email}  />
         </fieldset>
@@ -218,15 +210,19 @@ class NewTask extends React.Component {
   render(){
     return (
       <div className="wrapper">
-        <h1> Välj kategori </h1>
-          <TabsSwitcher 
-            tabs={this.state.tabs}
-            onClick={(i) => this.handleClick(i)}
-            active={this.state.active}
-          />
-          <TabsContent 
-            tabs={this.state.tabs} 
-            active={this.state.active}/>
+        <div className="container">
+          <div className="wrapper">
+            <h1> Välj kategori </h1>
+              <TabsSwitcher 
+                tabs={this.state.tabs}
+                onClick={(i) => this.handleClick(i)}
+                active={this.state.active}
+              />
+              <TabsContent 
+                tabs={this.state.tabs} 
+                active={this.state.active}/>
+          </div>
+        </div>
       </div>
     )
   }

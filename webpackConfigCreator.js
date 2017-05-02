@@ -3,6 +3,7 @@ var path = require('path');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var SplitByPathPlugin = require('webpack-split-by-path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function makeConfig(options) {
   var entry = {
@@ -17,6 +18,7 @@ function makeConfig(options) {
     publicPath: `${ outputFolder }/`,
   };
   output.path = buildPath;
+
 
   /** Plugins **/
   var plugins = [];
@@ -66,6 +68,11 @@ function makeConfig(options) {
     },
   ], { manifest: 'app-manifest' }));
 
+  plugins.push(new ExtractTextPlugin({
+            filename: '/public/build/main.css',
+            allChunks: true
+        }))
+
   /** /Plugins **/
 
   /** Rules **/
@@ -75,6 +82,11 @@ function makeConfig(options) {
     exclude: /node_modules/,
     loader: 'babel-loader',
   });
+
+  rules.push({
+    test: /\.scss$/,
+    loaders: ['style-loader', 'css-loader', 'sass-loader']
+  })
   /** /Rules **/
 
   var module = {

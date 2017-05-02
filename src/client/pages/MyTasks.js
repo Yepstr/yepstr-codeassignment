@@ -28,14 +28,13 @@ class GetData extends React.Component{
   render(){
     return(
         <Router>
-            <div>
-                <ul>
+            <div className="row">
+                <ul className="col col-span-4">
                   {this.state.tasks.map(task =>
                     <li key={task._id}>
                       <Link to={`/my-task/${task._id}`}>
-                        {task.title}
+                        <h3>{task.title}</h3>
                       </Link>
-                      
                     </li>
                   )}
                 </ul>
@@ -64,8 +63,12 @@ class MyTasks extends React.Component {
   render(){
     return (
       <div className="wrapper">
-        <h1> My tasks </h1>
-        <GetData />
+        <div className="container">
+          <div className="wrapper">
+            <h1> My tasks </h1>
+            <GetData />
+          </div>
+        </div>
       </div>
     )
   }
