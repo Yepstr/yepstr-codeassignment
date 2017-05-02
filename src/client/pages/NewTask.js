@@ -134,6 +134,7 @@ class Form extends React.Component {
     .then(res => {
       console.log(res);
       alert('Thank you for your message!');
+      window.location = '/'
     })
     .catch(err => {
       console.log(err);
