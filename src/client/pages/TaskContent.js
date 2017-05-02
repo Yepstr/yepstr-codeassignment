@@ -10,17 +10,17 @@ class TaskDetail extends React.Component {
   }
 
   render(){
-    const title = "Subject: " + this.props.task.title;
+    const title = "Kategori: " + this.props.task.title;
     return(
       <div>
         <h3>{title}</h3>
         <ul>
-          <li> Name: {this.props.task.fullname} </li>
-          <li> Email: {this.props.task.email} </li>
-          <li> Date: {this.props.task.date} </li>
-          <li> Time: {this.props.task.time} </li>
+          <li> Namn: {this.props.task.fullname} </li>
+          <li> E-mail: {this.props.task.email} </li>
+          <li> Datum: {this.props.task.date} </li>
+          <li> Tid: {this.props.task.time} </li>
         </ul>
-         <button className="btn" onClick={() => this.props.onClick()}>Delete</button>
+         <button className="btn" onClick={() => this.props.onClick()}>Ta bort</button>
       </div>
     )
   }

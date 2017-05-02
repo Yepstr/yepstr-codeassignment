@@ -18,8 +18,8 @@ if (typeof window !== 'undefined') {
             <div>
                 <div className="wrapper">
                     <ul className="nav-bar">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/my-task">My Task</Link></li>
+                        <li><Link to="/">Hem</Link></li>
+                        <li><Link to="/my-task">Mina Uppdrag</Link></li>
                     </ul>
                 </div>
                 <Route exact path="/" component={Home}/>

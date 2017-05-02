@@ -65,7 +65,7 @@ class MyTasks extends React.Component {
       <div className="wrapper">
         <div className="container">
           <div className="wrapper">
-            <h1> My tasks </h1>
+            <h1> Mina Uppdrag </h1>
             <GetData />
           </div>
         </div>

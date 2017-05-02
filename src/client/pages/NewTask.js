@@ -142,40 +142,40 @@ class Form extends React.Component {
   };
 
   render(){
-    const title = "Subject: " + this.props.title;
+    const title = "Kategori: " + this.props.title;
     return(
       <form className='form' onSubmit={this.handleSubmit}>
         <h2>{title}</h2>
         <fieldset className='form-group'>
-          <FormLabel htmlFor='formName' title='Full Name:' />
+          <FormLabel htmlFor='formName' title='Namn:' />
           <input id='formName' className='form-input' name='name' type='text'
-                 ref='formName' placeholder='Please write your name here'
+                 ref='formName' placeholder='Skriv ditt namn'
                  required onChange={this.handleChange}
                  value={this.state.name}  />
         </fieldset>
         <fieldset className='form-group'>
-          <FormLabel htmlFor='formEmail' title='Email:' />
+          <FormLabel htmlFor='formEmail' title='E-mail:' />
           <input id='formName' className='form-input' name='email' type='email'
-                 placeholder='youremail@example.com'
+                 placeholder='din_mail@mail.com'
                  required onChange={this.handleChange}
                  value={this.state.email}  />
         </fieldset>
         <fieldset className='form-group'>
-          <FormLabel htmlFor='formDate' title='Date:' />
+          <FormLabel htmlFor='formDate' title='Datum:' />
           <input id='formDate' className='form-input' name='date' type='text'
-                 ref='formDate' placeholder='Saturday, November 25'
+                 ref='formDate' placeholder='Lördag, Nov 25'
                  required onChange={this.handleChange}
                  value={this.state.date}  />
         </fieldset>
         <fieldset className='form-group'>
-          <FormLabel htmlFor='formTime' title='Time:' />
+          <FormLabel htmlFor='formTime' title='Tid:' />
           <input id='formTime' className='form-input' name='time' type='text'
                  ref='formTime' placeholder='14:00'
                  required onChange={this.handleChange}
                  value={this.state.time}  />
         </fieldset>
         <div className='form-group'>
-          <input id='formButton' className='btn' type='submit' placeholder='Send message' />
+          <button id='formButton' className='btn' type='submit'>Spara</button>
         </div>
       </form>
     )
