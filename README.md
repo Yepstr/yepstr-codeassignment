@@ -1,3 +1,8 @@
+### Solution
+Back-end: MongoDB + Express
+Front-end: React
+You can create, read and delete tasks.
+
 # Welcome to the yepstr code assignment
 This code assignment is here not just for us, but for you to try out a new technology.
 The project is set up more or less as our main yepstr project. Don't just see
