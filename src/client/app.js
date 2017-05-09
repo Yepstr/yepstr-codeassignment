@@ -1,16 +1,33 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Router } from 'react-router';
+//import { Router, IndexRoute } from 'react-router';
+import{ BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import style from './style.scss';
 import '../setup';
-import routes from './routes/rootRoute';
+//import routes from './routes/rootRoute';
 import history from './routes/history';
+
+import Home from './pages/NewTask';
+import MyTasks from './pages/MyTasks';
 
 if (typeof window !== 'undefined') {
   ReactDom.render((
-    <Router
-      history={ history }
-      routes={ routes }
-    />
+    <div>
+        <Router history={ history }>
+            <div>
+                <div className="wrapper">
+                    <ul className="nav-bar">
+                        <li><Link to="/">Hem</Link></li>
+                        <li><Link to="/my-task">Mina Uppdrag</Link></li>
+                    </ul>
+                </div>
+                <Route exact path="/" component={Home}/>
+                <Route path="/my-task" component={MyTasks}/>
+            </div>
+        </Router>
+    </div>
+    
+
   ), document.getElementById('app'));
 }

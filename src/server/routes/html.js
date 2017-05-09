@@ -31,6 +31,7 @@ export default class Html extends React.Component {
             rel="stylesheet"
             type="text/css"
           />
+          
           <title>{ title }</title>
           <BaseCss />
         </head>
