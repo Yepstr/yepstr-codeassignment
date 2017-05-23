@@ -26,11 +26,15 @@
     "case-sensitive-paths-webpack-plugin": "2.0.0",
     "concurrently": "3.4.0",
     "express": "4.15.2",
+    "jest": "19.0.2",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-router": "3.0.3",
+    "react-test-renderer": "15.5.4",
     "webpack": "2.3.3",
     "webpack-split-by-path": "2.0.0"
+    "react-tap-event-plugin": "2.0.1",
+    "material-ui": "0.18.1"
   },
   "devDependencies": {
     "@yepstr/eslint-config-yepstr": "1.0.2",

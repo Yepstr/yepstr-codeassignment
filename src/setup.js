@@ -1,1 +1,3 @@
-// Make sure that these modules gets loaded
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();

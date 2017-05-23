@@ -32,6 +32,7 @@ export default class Html extends React.Component {
             type="text/css"
           />
           <title>{ title }</title>
+          <link rel="icon" href="https://yepstr-christmas.herokuapp.com/assets/favicon-32x32.png" sizes="32x32" />
           <BaseCss />
         </head>
         <body>
