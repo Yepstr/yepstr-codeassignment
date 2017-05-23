@@ -28,7 +28,7 @@ const styles = {
   selectedPaper: {
     height: 100,
     width: 100,
-    margin: 20,
+    margin: 25,
     textAlign: 'center',
     display: 'inline-block',
     backgroundColor: 'orange',
@@ -51,7 +51,7 @@ class Category extends React.Component {
       return (
           <Paper style={ styles.paper } zDepth={ 0 } >
             <div id={ 'category-' + this.props.category.name } style={ styles.category }>
-              <div>{this.props.category.name}</div><br />
+              <div><b>{this.props.category.name}</b></div><br />
               <img src={ this.props.category.img } style={ styles.img } />
             </div>
           </Paper>);

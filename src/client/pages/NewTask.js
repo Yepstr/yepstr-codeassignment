@@ -75,7 +75,7 @@ class NewTask extends React.Component {
     return (
         <MuiThemeProvider>
           <div style={ styles.wrapper }>
-            <h1 id="task-title" style={ styles.title }>Create a new Task</h1>
+            <h1 id="task-title" style={ styles.title }>Nytt Uppdrag</h1>
             <div id="task-form" style={ styles.form }>
               <TaskForm categories={ this.state.categories } />
             </div>
