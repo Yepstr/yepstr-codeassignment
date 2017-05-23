@@ -36,28 +36,24 @@ const styles = {
   },
 };
 
-class Category extends React.Component {
-
-  render() {
-    if (this.props.selectedCategory === this.props.category.id) {
-      return (
+const Category = ({selectedCategory, category}) => {
+  if (selectedCategory === category.id) {
+    return (
       <Paper style={ styles.selectedPaper } zDepth={ 3 } >
-        <div id={ 'category-' + this.props.category.name } style={ styles.category }>
-          <div>{this.props.category.name}</div><br />
-          <img src={ this.props.category.img } style={ styles.selectedImg } />
+        <div id={ 'category-' + category.name } style={ styles.category }>
+          <div>{category.name}</div><br />
+          <img src={ category.img } style={ styles.selectedImg } />
         </div>
       </Paper>);
-    } else {
-      return (
+  } else {
+    return (
           <Paper style={ styles.paper } zDepth={ 0 } >
-            <div id={ 'category-' + this.props.category.name } style={ styles.category }>
-              <div><b>{this.props.category.name}</b></div><br />
-              <img src={ this.props.category.img } style={ styles.img } />
+            <div id={ 'category-' + category.name } style={ styles.category }>
+              <div><b>{category.name}</b></div><br />
+              <img src={ category.img } style={ styles.img } />
             </div>
           </Paper>);
-    }
   }
-
-}
+};
 
 export default Category;
