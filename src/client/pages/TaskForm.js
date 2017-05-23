@@ -80,12 +80,14 @@ class CategoryList extends React.Component {
       </Toolbar>
       <DatePicker
         floatingLabelText="Datum"
+        cancelLabel="Avbryt"
         minDate={ this.state.minDate }
         defaultDate={ this.state.date }
         onChange={ this.updateDate.bind(this) }
       /><br />
       <TimePicker
         floatingLabelText="Tid"
+        cancelLabel="Avbryt"
         defaultTime={ this.state.date }
         onChange={ this.updateTime.bind(this) }
       />
