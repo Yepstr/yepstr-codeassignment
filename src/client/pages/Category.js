@@ -19,15 +19,15 @@ const styles = {
   },
   paper: {
     height: 100,
-    width: 100,
+    width: 115,
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
   },
 
   selectedPaper: {
-    height: 100,
-    width: 100,
+    height: 115,
+    width: 115,
     margin: 19,
     textAlign: 'center',
     display: 'inline-block',

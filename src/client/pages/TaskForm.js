@@ -67,7 +67,7 @@ class CategoryList extends React.Component {
                 const boundItemClick = this.getCategory.bind(this, category);
 
                 return (
-                  <div onClick={ boundItemClick }>
+                  <div key={ category.id } onClick={ boundItemClick }>
                     <Category category={ category } selectedCategory={ this.state.selectedCategory } />
                   </div>);
               })}
