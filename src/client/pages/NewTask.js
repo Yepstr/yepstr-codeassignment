@@ -17,6 +17,9 @@ const styles = {
 
   form: {
     width: '50%',
+    margin: 'auto',
+    textAlign: 'center',
+    padding: '10px',
   },
 };
 
