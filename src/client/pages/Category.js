@@ -28,7 +28,7 @@ const styles = {
   selectedPaper: {
     height: 100,
     width: 100,
-    margin: 25,
+    margin: 19,
     textAlign: 'center',
     display: 'inline-block',
     backgroundColor: 'orange',
@@ -39,7 +39,7 @@ const styles = {
 const Category = ({selectedCategory, category}) => {
   if (selectedCategory === category.id) {
     return (
-      <Paper style={ styles.selectedPaper } zDepth={ 3 } >
+      <Paper style={ styles.selectedPaper } zDepth={ 2 } >
         <div id={ 'category-' + category.name } style={ styles.category }>
           <div>{category.name}</div><br />
           <img src={ category.img } style={ styles.selectedImg } />
