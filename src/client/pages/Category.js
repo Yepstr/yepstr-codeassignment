@@ -29,8 +29,6 @@ const styles = {
     height: 115,
     width: 115,
     margin: 19,
-    textAlign: 'center',
-    display: 'inline-block',
     backgroundColor: 'orange',
     color: 'white',
   },

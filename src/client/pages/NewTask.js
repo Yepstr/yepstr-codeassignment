@@ -1,5 +1,4 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import TaskForm from './TaskForm';
 
@@ -73,14 +72,12 @@ class NewTask extends React.Component {
 
   render() {
     return (
-        <MuiThemeProvider>
           <div style={ styles.wrapper }>
             <h1 id="task-title" style={ styles.title }>Nytt Uppdrag</h1>
             <div id="task-form" style={ styles.form }>
               <TaskForm categories={ this.state.categories } />
             </div>
           </div>
-        </MuiThemeProvider>
       ); }
 }
 
