@@ -2,10 +2,9 @@ import React from 'react';
 import Category from './Category';
 
 import GridList from 'material-ui/GridList';
-import Subheader from 'material-ui/Subheader';
 import DatePicker from 'material-ui/DatePicker';
 import TimePicker from 'material-ui/TimePicker';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 
 const styles = {
   categories: {
