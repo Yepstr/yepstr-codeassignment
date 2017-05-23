@@ -1,6 +1,8 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import TaskForm from './TaskForm';
+
 
 const styles = {
   wrapper: {
@@ -18,11 +20,12 @@ const styles = {
   },
 };
 
-const categories = [{
-  id: 1,
-  name: 'Barnvakt',
-  img: './public/img/ic-kids.svg',
-  featured: true,
+const categories = [
+  {
+    id: 1,
+    name: 'Barnvakt',
+    img: './public/img/ic-kids.svg',
+    featured: true,
   },
   {
     id: 2,
@@ -67,12 +70,14 @@ class NewTask extends React.Component {
 
   render() {
     return (
+        <MuiThemeProvider>
           <div style={ styles.wrapper }>
             <h1 id="task-title" style={ styles.title }>Create a new Task</h1>
             <div id="task-form" style={ styles.form }>
               <TaskForm categories={ this.state.categories } />
             </div>
           </div>
+        </MuiThemeProvider>
       ); }
 }
 

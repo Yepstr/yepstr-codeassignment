@@ -1,19 +1,41 @@
 import React from 'react';
 import Category from './Category';
+import GridList from 'material-ui/GridList';
+
+
+import DatePicker from 'material-ui/DatePicker';
+import TimePicker from 'material-ui/TimePicker';
 
 const styles = {
   categories: {
+    display: 'flex',
+    flexWrap: 'wrap',
     textAlign: 'center',
   },
+
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+  },
+
 };
 
 class CategoryList extends React.Component {
   constructor() {
     super();
+
+    const today = new Date();
+
     this.state = {
       selectedCategory: 0,
-      date: '2020-12-12',
-      time: '10:10',
+      minDate: today,
+      date: today,
     };
   }
 
@@ -26,39 +48,42 @@ class CategoryList extends React.Component {
     }
   }
 
+  updateDate(event, newDate) {
+    this.setState({date: newDate});
+  }
+
+  updateTime(event, newDate) {
+    this.setState({date: newDate});
+  }
+
   render() {
     return (
-        <div id="form">
-        <ul id="category-choice" style={ styles.categories }>
-            {this.props.categories.map((category) => {
-              const boundItemClick = this.getCategory.bind(this, category);
+        <div id="task-form">
 
-              return (<div onClick={ boundItemClick }>
-                  <Category category={ category } selectedCategory={ this.state.selectedCategory } />
-              </div>);
-            })}
-    </ul>
+          <GridList style={ styles.gridList } cols={ 2.2 }>
+              {this.props.categories.map((category) => {
+                const boundItemClick = this.getCategory.bind(this, category);
+
+                return (<div onClick={ boundItemClick }>
+                    <Category category={ category } selectedCategory={ this.state.selectedCategory } />
+                  </div>);
+              })}
+
+          </GridList>
     <form id="category-time" >
-        Datum
-        <input type="date" name="date"
-          value={ this.state.date }
-          onChange={ this.updateDate.bind(this) }
-        /> <br />
-        Tid
-        <input type="time" name="time"
-          value={ this.state.time }
-          onChange={ this.updateTime.bind(this) }
-        />
+      <DatePicker
+        floatingLabelText="Datum"
+        minDate={ this.state.minDate }
+        defaultDate={ this.state.date }
+        onChange={ this.updateDate.bind(this) }
+      /><br />
+      <TimePicker
+        floatingLabelText="Tid"
+        defaultTime={ this.state.date }
+        onChange={ this.updateTime.bind(this) }
+      />
     </form>
   </div>);
-  }
-
-  updateDate(event) {
-    this.setState({date: event.target.value});
-  }
-
-  updateTime(event) {
-    this.setState({time: event.target.value});
   }
 
 

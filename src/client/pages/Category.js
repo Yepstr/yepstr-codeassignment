@@ -1,33 +1,38 @@
 import React from 'react';
+import Paper from 'material-ui/Paper';
 
 const styles = {
   category: {
-    listStyleType: 'none',
     width: '50%',
     textAlign: 'center',
-  },
-  selectedCategory: {
-    listStyleType: 'none',
-    width: '50%',
-    textAlign: 'center',
-    fontWeight: '400',
-    color: 'white',
-    backgroundColor: 'orange',
   },
 
   img: {
-    width: '78.5px',
-    height: '78.5px',
     maxWidth: '100%',
 
   },
   selectedImg: {
     filter: 'invert(100%)',
-    width: '78.5px',
-    height: '78.5px',
     maxWidth: '100%',
 
 
+  },
+  paper: {
+    height: 100,
+    width: 100,
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  },
+
+  selectedPaper: {
+    height: 100,
+    width: 100,
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+    backgroundColor: 'orange',
+    color: 'white',
   },
 };
 
@@ -35,15 +40,21 @@ class Category extends React.Component {
 
   render() {
     if (this.props.selectedCategory === this.props.category.id) {
-      return (<li id={ 'category-' + this.props.category.name } style={ styles.selectedCategory }
-              >
-              <div>{this.props.category.name}</div><br />
-              <img src={ this.props.category.img } style={ styles.selectedImg } /></li>);
+      return (
+      <Paper style={ styles.selectedPaper } zDepth={ 3 } >
+        <div id={ 'category-' + this.props.category.name } style={ styles.category }>
+          <div>{this.props.category.name}</div><br />
+          <img src={ this.props.category.img } style={ styles.selectedImg } />
+        </div>
+      </Paper>);
     } else {
-      return (<li id={ 'category-' + this.props.category.name } style={ styles.category }
-              >
-            <div>{this.props.category.name}</div><br />
-            <img src={ this.props.category.img } style={ styles.img } /></li>);
+      return (
+          <Paper style={ styles.paper } zDepth={ 0 } >
+            <div id={ 'category-' + this.props.category.name } style={ styles.category }>
+              <div>{this.props.category.name}</div><br />
+              <img src={ this.props.category.img } style={ styles.img } />
+            </div>
+          </Paper>);
     }
   }
 
