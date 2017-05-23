@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Time from './Time';
-import CategoryList from './CategoryList';
+import TaskForm from './TaskForm';
 
 const styles = {
   wrapper: {
@@ -21,18 +20,39 @@ const styles = {
 
 const categories = [{
   id: 1,
-  name: 'Babysitting',
+  name: 'Barnvakt',
   img: './public/img/ic-kids.svg',
-},
+  featured: true,
+  },
   {
     id: 2,
-    name: 'Homework',
+    name: 'Läxhjälp',
     img: './public/img/ic-study.svg',
+    featured: true,
   },
   {
     id: 3,
-    name: 'Pets',
+    name: 'Hundpassning',
     img: './public/img/ic-dog-walking.svg',
+    featured: true,
+  },
+  {
+    id: 4,
+    name: 'Målning',
+    img: './public/img/ic-paint.svg',
+    featured: true,
+  },
+  {
+    id: 5,
+    name: 'Fönsterputs',
+    img: './public/img/ic-window-cleaning.svg',
+    featured: true,
+  },
+  {
+    id: 6,
+    name: 'Övrigt',
+    img: './public/img/ic-other.svg',
+    featured: true,
   },
 ];
 
@@ -41,7 +61,7 @@ class NewTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: categories,
+      categories: categories.filter((cat) => { return cat.featured; }),
     };
   }
 
@@ -50,8 +70,7 @@ class NewTask extends React.Component {
           <div style={ styles.wrapper }>
             <h1 id="task-title" style={ styles.title }>Create a new Task</h1>
             <div id="task-form" style={ styles.form }>
-              <CategoryList categories={ this.state.categories } />
-              <Time />
+              <TaskForm categories={ this.state.categories } />
             </div>
           </div>
       ); }
